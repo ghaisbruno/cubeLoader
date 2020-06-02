@@ -1,0 +1,60 @@
+.cube-unit {
+    fill-opacity: .9;
+    stroke-miterlimit: 0;
+    scale: 0.125;
+    --mainColor: #2ecc71;
+    --strokeColor: #000000;
+    --lightColor: #59D98E;
+    --darkColor: #2AB764;
+}
+
+@keyframes moveX {
+    to {
+        transform: translateX(var(--translate, 3px));
+    }
+}
+
+@keyframes moveY {
+    to {
+        transform: translateY(var(--translate, -3px));
+    }
+}
+
+.m-left,
+.m-right {
+    animation: 2s moveX alternate infinite running;
+}
+
+.m-up,
+.m-down {
+    animation: 2s moveY alternate infinite running;
+}
+
+.m-up.high{
+    --translate: -6px;
+}
+.m-up.half{
+    --translate: -1.5px;
+}
+
+.m-left {
+    --translate: -3px;
+}
+
+.m-right {
+    --translate: 3px;
+}
+
+.m-down {
+    --translate: 3px;
+}
+.m-down.high{
+    --translate: 6px;
+}
+.m-down.half{
+    --translate: 1.5px;
+}
+
+/* svg:hover * {
+    animation-play-state: running;
+  } */

@@ -1,0 +1,72 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="cube.css">
+        <title>Rubriks</title>
+    </head>
+
+    <body>
+        <svg class="canvas" viewBox="0 0 60 53" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <g id="cube" class="cube-unit">
+                    <rect width="21" height="24" fill="var(--lightColor)" stroke="var(--strokeColor)"
+                        transform="skewY(30)" />
+                    <rect width="21" height="24" fill="var(--darkColor)" stroke="var(--strokeColor)"
+                        transform="skewY(-30) translate(21 24.3)" />
+                    <rect width="21" height="21" fill="var(--mainColor)" stroke="var(--strokeColor)"
+                        transform="scale(1.41,.81) rotate(45) translate(0 -21)" />
+                </g>
+            </defs>
+            <!-- base -->
+            <g id="base">
+                <use xlink:href="#cube" class="m-down" x="15.125" y="14" />
+                <use xlink:href="#cube" class="m-down" x="12.5" y="15.5" />
+                <use xlink:href="#cube" class="m-down high" x="17.75" y="15.5" />
+                <use xlink:href="#cube" class="m-down" x="15.125" y="17" />
+                <use xlink:href="#cube" class="m-down" x="9.875" y="17" />
+                <use xlink:href="#cube" class="m-down high" x="20.375" y="17" />
+                <use xlink:href="#cube" class="m-down high" x="17.75" y="18.5" />
+                <use xlink:href="#cube" class="m-down" x="12.5" y="18.5" />
+                <use xlink:href="#cube" class="m-down" x="15.125" y="20" />
+            </g>
+            <g id="middle">
+                <use xlink:href="#cube" x="15.125" y="11" />
+                <use xlink:href="#cube" x="12.5" y="12.5" />
+                <use xlink:href="#cube" x="17.75" y="12.5" />
+                <use xlink:href="#cube" x="15.125" y="14" />
+                <use xlink:href="#cube" x="9.875" y="14" />
+                <use xlink:href="#cube" x="20.375" y="14" />
+                <use xlink:href="#cube" x="17.75" y="15.5" />
+                <use xlink:href="#cube" x="12.5" y="15.5" />
+                <use xlink:href="#cube" x="15.125" y="17" />
+            </g>
+            <g id="top">
+                <use xlink:href="#cube" class="m-up" x="15.125" y="8" />
+                <use xlink:href="#cube" class="m-up" x="12.5" y="9.5" />
+                <use xlink:href="#cube" class="m-up" x="17.75" y="9.5" />
+                <use xlink:href="#cube" class="m-up" x="15.125" y="11" />
+                <use xlink:href="#cube" class="m-up" x="9.875" y="11" />
+                <use xlink:href="#cube" class="m-up" x="20.375" y="11" />
+                <use xlink:href="#cube" class="m-up" x="17.75" y="12.5" />
+                <use xlink:href="#cube" class="m-up" x="12.5" y="12.5" />
+                <use xlink:href="#cube" class="m-up" x="15.125" y="14" />
+            </g>
+        </svg>
+        <script>
+            var topBlocks = document.getElementById("top");
+            for (var i = 0; i < topBlocks.childNodes.length; i++) {
+                if (topBlocks.childNodes[i].nodeName != "#text") {
+                    var block = topBlocks.childNodes[i];
+                    if (i % 3 === 0) {
+                        block.classList.add("high");
+                    }
+                }
+            }
+        </script>
+    </body>
+
+    </html>
